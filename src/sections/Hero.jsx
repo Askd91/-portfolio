@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
 import { motion, useMotionValue, useTransform, animate, AnimatePresence } from 'framer-motion'
 import { FaDownload, FaArrowRight, FaEnvelope } from 'react-icons/fa'
-// Drop a photo at src/assets/profile.jpg (or .png/.webp) and it shows up automatically.
+import profileFallback from '../assets/myimg.jpeg'
+
+// Drop your photo at src/assets/profile.jpg (or .png/.webp) and it shows up automatically.
 const photos = import.meta.glob('../assets/profile.{jpg,jpeg,png,webp}', { eager: true, import: 'default' })
-const profileImage = Object.values(photos)[0]
+const profileImage = Object.values(photos)[0] ?? profileFallback
 
 const Counter = ({ value, label }) => {
   const count = useMotionValue(0)
@@ -217,24 +219,17 @@ const Hero = () => {
           `}</style>
 
           <div
-            className="relative w-[240px] h-[240px] md:w-[300px] md:h-[300px] rounded-full glass-card flex items-center justify-center overflow-hidden"
+            className="relative w-[240px] h-[240px] md:w-[300px] md:h-[300px] rounded-full glass-card flex items-center justify-center overflow-hidden border border-accent-blue/30"
             style={{ boxShadow: '0 0 40px rgba(59, 130, 246, 0.3)' }}
           >
-            {profileImage ? (
-              <img
-                src={profileImage}
-                alt="Ahmed Saud Durrani"
-                className="w-full h-full object-cover object-top rounded-full scale-90"
-              />
-            ) : (
-              <span
-                className="text-gradient font-bold select-none"
-                style={{ fontSize: 'clamp(3.5rem, 8vw, 5.5rem)', letterSpacing: '-0.04em' }}
-                aria-label="Ahmed Saud Durrani"
-              >
-                ASD
-              </span>
-            )}
+            <img
+              src={profileImage}
+              alt="Ahmed Saud Durrani"
+              className="w-full h-full object-cover object-top rounded-full scale-90"
+              onError={(e) => {
+                e.currentTarget.src = profileFallback
+              }}
+            />
           </div>
         </motion.div>
       </div>

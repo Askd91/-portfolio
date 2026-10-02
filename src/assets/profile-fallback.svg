@@ -1,0 +1,21 @@
+<svg width="600" height="600" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bg" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(300 240) rotate(90) scale(320)">
+      <stop stop-color="#0E2A47"/>
+      <stop offset="0.48" stop-color="#071C30"/>
+      <stop offset="1" stop-color="#020B16"/>
+    </radialGradient>
+    <linearGradient id="ring" x1="80" y1="80" x2="520" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5EE7FF"/>
+      <stop offset="1" stop-color="#1E7FEA"/>
+    </linearGradient>
+    <linearGradient id="text" x1="120" y1="150" x2="470" y2="470" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#74E8FF"/>
+      <stop offset="1" stop-color="#2AA6FF"/>
+    </linearGradient>
+  </defs>
+  <circle cx="300" cy="300" r="260" fill="url(#bg)"/>
+  <circle cx="300" cy="300" r="260" stroke="url(#ring)" stroke-width="6" opacity="0.9"/>
+  <circle cx="300" cy="300" r="215" fill="none" stroke="url(#ring)" stroke-width="2" opacity="0.5"/>
+  <text x="300" y="340" text-anchor="middle" fill="url(#text)" style="font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: 180px; letter-spacing: -12px;">ASD</text>
+</svg>
